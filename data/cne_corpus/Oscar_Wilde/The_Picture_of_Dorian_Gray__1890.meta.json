@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 174,
-  "title": "The Picture of Dorian Gray",
-  "requested_title": "The Picture of Dorian Gray",
-  "author": "Oscar Wilde",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/174.txt.utf-8",
-  "year": 1890
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:032fa8a869dfa05d63c0a8696d6d632b7429bdd83861243d24670e5b8c4735a0
+size 309

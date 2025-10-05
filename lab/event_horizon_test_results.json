@@ -1,26 +1,3 @@
-{
-  "test_summary": {
-    "total_concepts": 44549,
-    "delta": 0.15,
-    "band_density": 0.14819636804417607,
-    "criteria_met": 2,
-    "spread_median": 0.36782910848899647,
-    "ppmi_mean": 4.27472065446286,
-    "ppmi_std": 1.1287637721028927
-  },
-  "phase_distribution": {
-    "collapsed": 24418,
-    "stable": 13529,
-    "event_horizon": 6602
-  },
-  "stability_means": {
-    "collapsed": 738.0242755967174,
-    "event_horizon": 647.7043282017944,
-    "stable": 567.5352169197517
-  },
-  "confirmation_criteria": {
-    "distinct_clusters": true,
-    "density_spike": false,
-    "reproducible_spread": true
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ea002fcf59b5ce058e0a68d6cbb0a2eee8fde1b5dd3d73b411d3921695b5143
+size 614

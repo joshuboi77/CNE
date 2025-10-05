@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 1074,
-  "title": "The Sea-Wolf",
-  "requested_title": "The Sea-Wolf",
-  "author": "Jack London",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/1074.txt.utf-8",
-  "year": 1904
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:29203c4d87818a71909c63702972d7432cda0225def0f6be2409b8252bf356ad
+size 283

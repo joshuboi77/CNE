@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 107,
-  "title": "Far from the Madding Crowd",
-  "requested_title": "Far from the Madding Crowd",
-  "author": "Thomas Hardy",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/107.txt.utf-8",
-  "year": 1874
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e8b7fa0ea27e46b536ea905bad4c59bfc411f7fd3353f1d38d3f0f9242182f88
+size 310

@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 308,
-  "title": "Three men in a boat (to say nothing of the dog)",
-  "requested_title": "Three Men in a Boat",
-  "author": "Jerome K. Jerome",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/308.txt.utf-8",
-  "year": 1889
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:216fd5b6bbde9dfe620a6eb7b4947227cf2d19e4209dcc86625377cd523466b9
+size 328

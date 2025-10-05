@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 43,
-  "title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
-  "requested_title": "Strange Case of Dr. Jekyll and Mr. Hyde",
-  "author": "Robert Louis Stevenson",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/43.txt.utf-8",
-  "year": 1886
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d9e38b50014f48435e25e3798789be0be1921590c798d7b6d01dd06f824cd82
+size 348

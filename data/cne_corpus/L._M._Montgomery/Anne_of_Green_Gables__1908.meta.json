@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 45,
-  "title": "Anne of Green Gables",
-  "requested_title": "Anne of Green Gables",
-  "author": "L. M. Montgomery",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/45.txt.utf-8",
-  "year": 1908
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8531376c5f3d216212e3642810c25586ea038fd124cbeadfab716f7a05590f62
+size 300

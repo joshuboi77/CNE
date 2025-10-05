@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 236,
-  "title": "The Jungle Book",
-  "requested_title": "The Jungle Book",
-  "author": "Rudyard Kipling",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/236.txt.utf-8",
-  "year": 1894
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:69f6d5b79b6d84a04aeddce5008a58738e3cc6128b10a6210efdb6661141f526
+size 291

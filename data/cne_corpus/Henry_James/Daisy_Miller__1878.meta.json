@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 208,
-  "title": "Daisy Miller: A Study",
-  "requested_title": "Daisy Miller",
-  "author": "Henry James",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/208.txt.utf-8",
-  "year": 1878
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e00ce11a110d6fb702c97d337839f607d10aabdd6eb653403fec0140d58a0a58
+size 290

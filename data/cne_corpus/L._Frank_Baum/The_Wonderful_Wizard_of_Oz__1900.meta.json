@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 55,
-  "title": "The Wonderful Wizard of Oz",
-  "requested_title": "The Wonderful Wizard of Oz",
-  "author": "L. Frank Baum",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/55.txt.utf-8",
-  "year": 1900
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6aa1c83118fa525d6298e85123a0a548de03548c12b08ab77586dcdb3352f141
+size 309

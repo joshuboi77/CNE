@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 110,
-  "title": "Tess of the d'Urbervilles: A Pure Woman",
-  "requested_title": "Tess of the d'Urbervilles",
-  "author": "Thomas Hardy",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/110.txt.utf-8",
-  "year": 1891
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e215152f7b762268e8f36e12eddddd62e719fb713629610143c2b053b95cb043
+size 322

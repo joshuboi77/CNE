@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 558,
-  "title": "The Thirty-Nine Steps",
-  "requested_title": "The Thirty-Nine Steps",
-  "author": "John Buchan",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/558.txt.utf-8",
-  "year": 1915
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8c85c2a27fd2f79e159a95f40a5ee91348051d6dca2de562f301ff13cab00245
+size 299

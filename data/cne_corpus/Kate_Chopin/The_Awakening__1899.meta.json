@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 23724,
-  "title": "The Awakening",
-  "requested_title": "The Awakening",
-  "author": "Kate Chopin",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/files/23724/23724-readme.txt",
-  "year": 1899
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d2cdb6890f3e128e4fad18e5622fd716c44d325872573c00d70f9650580e52d7
+size 293

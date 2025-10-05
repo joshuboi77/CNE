@@ -1,12 +1,3 @@
-{
-  "source": "Project Gutenberg (via Gutendex)",
-  "gutendex_id": 35,
-  "title": "The Time Machine",
-  "requested_title": "The Time Machine",
-  "author": "H. G. Wells",
-  "languages": [
-    "en"
-  ],
-  "downloaded_from": "https://www.gutenberg.org/ebooks/35.txt.utf-8",
-  "year": 1895
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f1e1d0cde9fedb7b3623f657405a8a7d7d3e9fcf7fddf95dcd6b933427c8a9f1
+size 287
