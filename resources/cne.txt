@@ -1,0 +1,112 @@
+CNE (Conceptual-Neural-Engine)
+Why Attention Isn’t All You Need
+The proposal of this document is simple: attention, often assumed to be the ultimate solution in
+modern NLP systems, is not the key to creating a thinking silicon mind. The answer isn’t more
+weights, more resources, or more GPUs and TPUs. The answer lies in simulating thought with
+higher complexity. We need to step back and understand why we think the way we do—to truly
+grasp what it means when a butterfly flapping its wings in Tokyo causes a chain reaction of
+events, a beautiful metaphor for thought itself.
+CNE (Conceptual-Neural-Engine) seeks to accomplish this. Here, things become more
+complex, moving beyond token prediction over many layers and hours of training.
+Core Idea
+The core idea behind CNE is that everything can be conceptualized, referencing many other
+things in the same universe. When you look at a tree, you don’t think "T-R-E-E" in a blank 2D
+space. You think of a tree—its roots, leaves, bark, birds, nests—each with its own
+conceptualizations, personal memories, and mental images stitched to them. This relates to
+the theory of general relativity: the tree one person sees is not the same tree another sees,
+even though it occupies the same space and time. The mind operates in another dimension.
+Imagine storing all these mental images and connections in a database. One person might
+label it “tree,” another as "木." As more mental images and experiences grow, so does this
+concept, forming a neural network with other concepts.
+How this relates to NLP and LLMs
+Human language dating as far back as we can go has always been deterministic. There are
+laws to every language transcending into the world of math. Most importantly language is the
+interconnection of concepts and their relation to each other to form a meta concept which
+someone else can receive and conceptualize in their own way. Take a sentence for example.
+Every word in a sentence can be isolated and examined. Now this is where things get
+interesting. Every word in theory should have a concept… or should it? Suppose you have a
+database and naturally there will be some level of imbalance in regards to the appearance of
+certain words / ideas. Some will appear more than others. Some may only ever appear once.
+Those that tend to appear more tend to form better concepts because of their correlation to
+other words and mental images, etc. However some may appear significantly more than all the
+others. These stand out. These are what I call black holes and can be determined using the
+simplified Schwarzschild Radius.
+2GM
+R ≤ Rs ≡
+c2
+Where Rs(Schwarzschild Radius) is the universal average radii of all the other concepts within
+a given range. The radii is determined by the number of co-occurring words within a set range.
+The mass of the object is determined by the number of appearances this word has made. It is
+through this that I made an interesting discovery. Not only do the laws of general relativity
+come into play in the human language, they expose deeper patterns of thought. Words that
+pass this threshold collapse and expose themselves, most interestingly words that don’t really
+have true concept / meaning behind them. Connector words. Filler words. Words like “the” and
+“and”. Every language has these. That helps separate the wheat from the chaﬀ. But through
+this I also made an interesting and deeply insightful discovery on the sad reality of
+brainwashing. If something is repeated often enough it will inevitably cross this threshold in our
+minds and collapse into a meaningless object. But I digress.
+Words that are = to the Schwarzschild Radius but are not collapsed form an event horizon.
+These are words that have concepts so strong that all the other words in some way or another
+revolve around them. Do you love someone? Do you have a crush on someone? Odds are they
+have formed an event horizon in your mind. Hence why when someone is madly in love
+everything around them for some reason “remind” them of that person.
+Words that haven’t accumulated enough mass to reach this threshold are they are stable words with gravitational pulls of their own.
+> Rs
+meaning that
+Now the theory of CNE is this. That it is these words that are > Rs
+that form the meaning of
+each other and that of those that are = Rs
+. So when you grab a range of co-occurring words
+and place them within a “concept-bubble” those are the focus of attention. Any R < Rs
+or
+= Rs
+can be ignored when used in the forming of these words (yes even = Rs
+because the
+inverse is true). If the database is rich enough there will be plenty of fellow > Rs
+words to
+choose from. But this is where a deeper layer of structure emerges. Just because a word sits
+beyond the event horizon or because it has mass and appears often enough, does not mean it
+truly orbits the concept. In the same way that a passing asteroid can swing through a star’s
+gravity well without becoming a moon, certain high-frequency words may be influenced by a
+concept but never become part of its stable system.
+To qualify as part of the orbit, a word must do more than exist above the collapse threshold; it
+must possess the right balance of mass, distance, and momentum relative to the concept’s
+gravity. Its relationship must be bounded — pulled into a closed path by shared context and
+co-occurrence — yet far enough from the event horizon to avoid being consumed by it. Only
+then does it enter a dynamic equilibrium: neither collapsing into noise nor drifting away into
+irrelevance, but instead circling in a stable, semantically meaningful orbit around the core idea .
+This can be conceptualized as such:
+with Exy
+as the token’s mass (frequency × centrality), mx rxy
+as its binding energy:
+as its distance from the concept, and
+G mc
+Exy
+=
+< 0 and
+rs < rxy < rH
+rxy
+These words that sit in the orbital horizon are the words that help define the word and are
+integral for creating NLP systems.
+If one were to spill the orbital words own co-occurring words into a raw vector space sorted by
+distance from the key word itself, one would get a pool of words — all of them forming an
+anchor of sorts for a prediction engine. Combining a sentence’s anchor pools gives a solid list
+of words to choose from for prediction helping things to stay on topic.
+1
+2 v2
+xy−
+A prediction engine can be built by looking at the last word in a sentence and predicting what
+would come next simply by examining other examples in the database. However, this is static,
+and the highest occurring word will always win. Now, introduce past analysis and future
+prediction. Suppose the engine looks at all the other examples in the database but favors the
+closest based on the highest similarity of sentences with a similar event loop. However, now
+tail-end predictions may be dynamic, but only when the sentence changes.
+The same sentences will always output the same result. Our anchor pool helps settle future
+predictions by giving us a list of words to choose from, not only as a scoring system to see
+how closely they link to the original sentence conceptually but as a list of words to move the
+sentence forward into decay. Laws of entropy do apply. This can be used to take a list of any
+good next-word candidates that could fit the sentence, but the highest-ranking word might not
+win because it causes decay too quickly—or too slowly.
+Those patterns of decay, as well as the patterns of structure, are what a very small neural
+network can handle. The neural network isn’t the form of thought. It is the laws of thought, as
+outlined here in this paper, that form thought. That is where we have been getting it all wrong.

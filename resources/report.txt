@@ -1,0 +1,139 @@
+Title
+CNE Schwarzschild Analysis: Empirical Evidence for Conceptual Collapse and Event Horizons in Language
+
+Abstract
+We investigate a theory-led framework (Conceptual‑Neural Engine; CNE) that models language as a gravitational field of concepts. 
+Words act as masses whose frequency (mass) and conceptual radius (spread) determine whether they collapse into “black holes,” enter chaotic “event horizons,” or remain stable. 
+We formalize collapse via the ratio R_s/R_c ≥ 1 and detect event horizons by robust, data‑driven anomaly knees in the rank–frequency structure. We apply this to a corpus of 4.45×10^4 unique words (3.19×10^6 tokens). 
+Results show a compact black‑hole set dominated by function words (28 words) and a broad event‑horizon band (1,146 words) whose onset is detected at frequency ≈263. 
+This report details the theory, implementation, and empirical outcomes, and outlines next steps to tighten the math with co‑occurrence radii and residual‑based anomaly models.
+
+Background
+
+Motivation: Attention-based models excel at correlation but lack explicit conceptual dynamics. CNE uses physics metaphors to structure meaning.
+Key idea: Frequency induces conceptual “mass.” When a concept’s effective radius falls within its Schwarzschild radius, meaning collapses. Below this, an event horizon emerges where conceptual gravity creates chaotic, high-salience behavior that later stabilizes into collapse.
+Expected phenomena:
+Black holes: ultra‑frequent, semantically empty operators.
+Event horizons: high-centrality, context-warping words with anomalous dynamics.
+Stable words: semantically distinct content with balanced gravity.
+Theory
+
+Mass and radii:
+Mass M ∝ normalized frequency f/max(f).
+Conceptual radius Rc = k_c · (M)^β_c with 0<β_c<1 (sublinear).
+Schwarzschild radius Rs = k_s · (2·G·M^β_s)/c^2 with β_s≈1 (linear-ish).
+Collapse criterion:
+Black hole when Rs/Rc ≥ 1.0.
+Event horizon (physics band) when Rs/Rc ∈ [0.7, 1.0).
+Event horizon via anomaly knees:
+Adjacent frequency “drop” signal: drop[i] = f[i] − f[i+1].
+Work in log space: x=log10(f), y=log10(max(drop,1)).
+Bin x; within bins compute median(y), MAD(y); define z=(y−median)/(1.4826·MAD).
+EH onset: first large anomaly from the low‑frequency side where z exceeds a rolling baseline by α MADs and absolute z ≥ z_min.
+Collapse start: region where a high fraction of points maintain large z (“purely high jumps”) and the window’s MAD is low (chaos stabilized).
+Event horizon band = contiguous range from highest frequencies down to the detected EH onset, excluding black holes (and truncated at collapse if detected).
+Methods
+
+Data and preprocessing:
+Corpus summary: 44,547 unique words; 3,191,428 total token occurrences (results/summary.txt).
+Frequency ranking descending; no stop‑word filtering (by design).
+Model parameters (final run):
+k_s=1.8, k_c=1.0; β_s=1.0, β_c=0.5; collapse threshold = 1.0; physics EH lower = 0.7.
+Drop detection: bin width (log10) = 0.2; z_event = 2.5; z_bh = 4.0 (for very high‑freq BH promotion).
+Knee detection:
+EH baseline window = 300; α_jump = 4.0 MAD; min abs z = 2.5.
+Collapse window = 500; z_high = 3.8; high‑fraction = 0.85; MAD_smooth_max = 1.0.
+Classification logic:
+Black_Hole if Rs/Rc ≥ 1.0 OR (freq ≥ collapse_knee AND drop_z ≥ z_bh).
+Event_Horizon if not BH AND [Rs/Rc ∈ [0.7,1.0) OR (freq ≥ EH_onset AND drop_z ≥ z_event) OR within the contiguous EH band (top down to EH onset)].
+Stable otherwise.
+Outputs:
+Detailed listings with collapse ratio, drop, drop‑z, labels: results/detailed_results.txt.
+Category lists: results/black_holes.txt, results/event_horizons.txt, results/stable_words.txt.
+Summary and parameters: results/summary.txt.
+Diagnostics: results/conceptual_analysis.txt.
+Results
+
+Dataset statistics:
+Unique words: 44,547; total occurrences: 3,191,428; top word: “the” (178,695).
+Schwarzschild vs. conceptual radii:
+Rc range: ~0.0024 to 1.0000; Rs range: ~0.00 to 3.60 (normalized units).
+Classification counts:
+Black_Hole: 28 words (0.1%).
+Event_Horizon: 1,146 words (2.6%).
+Stable: 43,373 words (97.4%).
+Event horizon and collapse knees:
+EH onset frequency: ≈263 (results/summary.txt).
+Collapse start: not detected under current “purely high jumps” criteria; EH band extends from rank 1 down to EH onset, excluding BH.
+Exemplars (from results/black_holes.txt):
+BH: “the”, “and”, “to”, “of”, “in”, “he”, “was”, “that”, “it”, “you”… with ratios up to ~3.6.
+EH: high‑centrality words e.g., “all”, “they”, “there”, “this”, “by”, “from”, “so” and many others across the 1146‑word band.
+Frequency‑drop diagnostics (conceptual_analysis.txt):
+Positive high z-scores cluster near the high‑frequency region; first large deviation detected in mid‑frequency band (~10^2–10^3), consistent with your plot’s “onset band”.
+Interpretation
+
+Black holes: The compact BH set matches the theory—ultra‑frequent structural operators collapse (high Rs/Rc) and carry minimal specific meaning.
+Event horizon as chaos band: The contiguous EH band starting at the first anomaly knee reflects the onset of chaotic, salience‑dominated dynamics, aligning with your “watch the climb → chaos” description.
+No collapse knee found: Under strict “purely high jumps” criteria, the data did not yield a stable‑high window; relaxing this is expected to find a collapse start closer to ~10k, as your exploratory plot hinted.
+Validation Against Theory
+
+Consistency:
+Rs/Rc ≥ 1 for collapse matches the conceptual Schwarzschild framing.
+EH onset from anomaly knees recognizes that horizons are chaotic and multi‑knee by nature; the “first big anomaly” rule selects a principled boundary.
+Assumptions:
+Rc based on frequency (mass) is a proxy; the whitepaper’s Rc is better expressed as co‑occurrence span. Despite this, the current proxy recovers the expected BH/EH structure.
+Limitations
+
+Conceptual radius proxy: Frequency‑only ignores spatial/graph geometry of meaning; upgrading Rc to co‑occurrence span will sharpen BH/EH boundaries.
+Adjacent drop signal: Using f[i]−f[i+1] conflates slope and local noise; residuals from a robust fit would be a tighter anomaly measure.
+Static entropy labels: Word‑level “entropy” is heuristic; deriving it from neighbor distributions would provide empirical grounding.
+Recommendations
+
+Residual‑based anomaly model:
+Fit robust f(r) in log–log space (e.g., Theil‑Sen or Huber regression; or a monotone spline), define residual drop or local derivative residual, then reapply the MAD/z detector.
+Co‑occurrence‑driven Rc:
+Build a sliding‑window or dependency‑based co‑occurrence graph; define Rc as average window distance to top‑K neighbors, blended with frequency proxy: Rc = w·Rc(span) + (1−w)·(f/max)^βc.
+Data‑driven collapse knee:
+Relax collapse criteria to locate a stable-high region around ~10k frequency per your plot, then set dynamic f_scatter at the detected knee for BH promotion.
+Reproducibility Notes
+
+Code: schwarzschild.py (key sections: parameter block; frequency‑drop MAD/z; knee detection; combined classifier).
+Parameters saved: results/parameters.json; dynamic thresholds recorded in results/summary.txt under “Dynamic Knee Detection.”
+Full diagnostics: results/conceptual_analysis.txt and results/detailed_results.txt.
+Conclusion
+The CNE Schwarzschild framework, even with frequency‑based proxies, cleanly separates collapsed structural operators from an extensive, chaotic event‑horizon band. 
+Dynamic knee detection grounds the EH boundary in data rather than ad hoc thresholds, aligning with observed “frequency‑drop” behavior. 
+Incremental upgrades—residual‑based anomaly detection and co‑occurrence‑based conceptual radius—will enhance fidelity without changing the core logic.
+
+Neural Residual Add‑On (Implemented Scaffolding)
+
+Purpose
+Add a tiny neural component as a residual smoother over existing physics/symbolic scores—never replacing the collapse/horizon laws.
+
+Components
+- Residual edge scorer (ΔE): `service/residual_scorer.py`
+  - 2‑layer tanh MLP loaded from JSON (`models/residual_scorer.json`).
+  - Input features per edge (c,x): PPMI, cosine, freq_x, centrality_x, entropy_x, median span, Rs/Rc(x), fan size, num_scales, in_W5/W10/W20.
+  - Applied in `service/concept_layer.py` to adjust binding energy: `E_tilde = max(0, E_raw + ΔE)` with safety cap.
+
+- R_c regressor: `service/rc_regressor.py`
+  - 2‑layer tanh MLP from JSON (`models/rc_regressor.json`).
+  - Predicts geometry‑aware R_c from node features (span_norm, entropy_norm, centrality, tight_norm, context_size, frequency).
+  - Blended at inference: `R_c* = λ·R_c_NN + (1−λ)·R_c_proxy`.
+
+- Dataset prep (self‑supervised): `scripts/prepare_edge_dataset.py`
+  - Produces `datasets/edges.jsonl` (pos/neg edge features) and `datasets/nodes.jsonl` (node features + R_c target).
+
+Wiring & Flags
+- Config (defaults off): see dataclass in `service/concept_layer.py`.
+  - `use_residual_scorer`, `residual_model_path`, `cap_delta_factor`.
+  - `use_rc_regressor`, `rc_model_path`, `lambda_rc`.
+  - When enabled, adjusted metrics are persisted: `energy_raw`, `delta_e`, `R_c_raw` alongside `energy`, `R_c`.
+
+How to Run
+- Build concept layer (baseline): `.venv/bin/python service/concept_layer.py`
+- Prepare training datasets: `.venv/bin/python scripts/prepare_edge_dataset.py`
+- Enable residuals/regressor: edit `main()` or pass a custom config in `service/concept_layer.py` to set flags True and point to model JSONs under `models/`.
+
+Acceptance Checks
+- Improved orbit precision@k, fewer diffuse L3 entries, stable BH/EH counts (~28/~1.1k), and coherent top‑10 neighbors for seeded concepts.
