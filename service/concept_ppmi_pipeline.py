@@ -15,7 +15,9 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from service.ppmi_builder import PPMIBuilder, PPMIConfig
 from service.concept_net import ConceptNet, ConceptNetConfig, deterministic_embedding
-from service.concept_store import init_concept_db, write_concepts_to_db
+from service.ppmi_store import init_concept_db, write_concepts_to_db
+from service.concept_builder import build_concepts
+from service.concept_store import init_concept_v1_db, write_concepts_v1_to_db, write_concepts_v1_to_json
 
 
 @dataclass
@@ -29,6 +31,8 @@ class PipelineConfig:
     s_mid: float = 0.6
     s_high: float = 1.2
     output_dir: Path = Path("concept_ppmi_results")
+    concepts_dir: Path = Path("concepts")
+    enable_cb_v1: bool = True
 
 
 class ConceptPPMIPipeline:
@@ -186,6 +190,31 @@ class ConceptPPMIPipeline:
         init_concept_db(db_path)
         write_concepts_to_db(db_path, concepts, ppmi)
         self.log.info("PPMI concept build complete: %d concepts; DB=%s", len(concepts), db_path)
+        
+        # Run CB-v1 concept building if enabled
+        if cfg.enable_cb_v1:
+            self.log.info("Running CB-v1 concept building...")
+            try:
+                # Build high-quality concepts using CB-v1
+                built_concepts, summary_stats = build_concepts(concepts)
+                
+                # Save CB-v1 results to concepts directory
+                cfg.concepts_dir.mkdir(parents=True, exist_ok=True)
+                
+                # Write to database
+                cb_v1_db_path = cfg.concepts_dir / "concepts.db"
+                init_concept_v1_db(cb_v1_db_path)
+                write_concepts_v1_to_db(cb_v1_db_path, built_concepts, summary_stats)
+                
+                # Write to JSON files
+                write_concepts_v1_to_json(cfg.concepts_dir, built_concepts, summary_stats)
+                
+                self.log.info("CB-v1 concept building complete: %d valid concepts; DB=%s", 
+                             summary_stats['valid_concepts'], cb_v1_db_path)
+                
+            except Exception as e:
+                self.log.error("CB-v1 concept building failed: %s", e)
+                raise
 
 
 def main():
